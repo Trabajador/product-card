@@ -1,45 +1,78 @@
-# Hydrogen template: Skeleton
+# Hydrogen Storefront Product Card
 
-Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dovetail with [Remix](https://remix.run/), Shopify’s full stack web framework. This template contains a **minimal setup** of components, queries and tooling to get started with Hydrogen.
+A modern, responsive product card component built with Shopify Hydrogen and React.
 
-[Check out Hydrogen docs](https://shopify.dev/custom-storefronts/hydrogen)
-[Get familiar with Remix](https://remix.run/docs/en/v1)
+## Features
 
-## What's included
+- Responsive design
+- Color variant selection with swatches
+- Image hover effects
+- Sale badge
+- Sold out indicator
+- Price comparison
+- Vendor information
 
-- Remix
-- Hydrogen
-- Oxygen
-- Vite
-- Shopify CLI
-- ESLint
-- Prettier
-- GraphQL generator
-- TypeScript and JavaScript flavors
-- Minimal setup of components and routes
+## Live Demo
 
-## Getting started
+[View Live Demo](https://your-demo-url.com)
 
-**Requirements:**
-
-- Node.js version 18.0.0 or higher
+## Installation
 
 ```bash
-npm create @shopify/hydrogen@latest
-```
+# Clone the repository
+git clone https://github.com/your-username/hydrogen-storefront.git
 
-## Building for production
+# Navigate to project directory
+cd hydrogen-storefront
 
-```bash
-npm run build
-```
+# Install dependencies
+npm install
 
-## Local development
-
-```bash
+# Start development server
 npm run dev
 ```
 
-## Setup for using Customer Account API (`/account` section)
+## Usage
 
-Follow step 1 and 2 of <https://shopify.dev/docs/custom-storefronts/building-with-the-customer-account-api/hydrogen#step-1-set-up-a-public-domain-for-local-development>
+```jsx
+import {ProductItem} from '~/components/ProductItem';
+
+function ProductGrid() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {products.map((product) => (
+        <ProductItem key={product.id} product={product} />
+      ))}
+    </div>
+  );
+}
+```
+
+## Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| product | Object | Product data from Shopify |
+| loading | boolean | Loading state |
+
+## Development
+
+```bash
+# Run tests
+npm test
+
+# Build for production
+npm run build
+```
+
+## License
+
+MIT
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request

@@ -110,16 +110,55 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
     currencyCode
   }
   fragment ProductItem on Product {
-    id
-    handle
-    title
-    featuredImage {
       id
-      altText
-      url
-      width
-      height
-    }
+      title
+      handle
+      vendor
+      featuredImage {
+        id
+        url
+        altText
+        width
+        height
+      }
+      images(first: 5) {
+        nodes {
+          id
+          url
+          altText
+          width
+          height
+        }
+      }
+      options {
+        name
+        values
+      }
+      variants(first: 10) {
+        nodes {
+          id
+          availableForSale
+          selectedOptions {
+            name
+            value
+          }
+          image {
+            id
+            url
+            altText
+            width
+            height
+          }
+          price {
+            amount
+            currencyCode
+          }
+          compareAtPrice {
+            amount
+            currencyCode
+          }
+        }
+      }
     priceRange {
       minVariantPrice {
         ...MoneyProductItem
