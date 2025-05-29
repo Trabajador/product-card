@@ -4,7 +4,6 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "hydrogen",
-  "regions": ["iad1"],
   "env": {
     "PUBLIC_STOREFRONT_API_TOKEN": "shpat_mock_public_token_123",
     "PRIVATE_STOREFRONT_API_TOKEN": "shpat_mock_private_token_456",
@@ -15,9 +14,17 @@
     {
       "src": "dist/server/index.js",
       "use": "@vercel/node@18.17.0"
+    },
+    {
+      "src": "dist/client/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/client/assets/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "dist/server/index.js"
