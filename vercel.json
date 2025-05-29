@@ -14,17 +14,9 @@
     {
       "src": "dist/server/index.js",
       "use": "@vercel/node@18.17.0"
-    },
-    {
-      "src": "dist/client/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/dist/client/assets/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "dist/server/index.js"
