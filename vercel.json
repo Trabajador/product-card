@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
@@ -12,13 +13,13 @@
   },
   "functions": {
     "api/**/*.js": {
-      "runtime": "nodejs@20.10.0"
+      "runtime": "@vercel/node@18.17.0"
     }
   },
   "builds": [
     {
       "src": "dist/server/index.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node@18.17.0"
     }
   ],
   "routes": [
