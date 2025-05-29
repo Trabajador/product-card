@@ -57,7 +57,7 @@ function ProductImage({product, isHovered, hasSecondaryImage, mainImage, seconda
             data={mainImage}
             loading={loading}
             sizes="(min-width: 45em) 400px, 100vw"
-            className={`w-full h-full transition-opacity duration-300 ${
+            className={`w-full h-full object-contain transition-opacity duration-300 ${
               isHovered && hasSecondaryImage ? 'opacity-0' : 'opacity-100'
             }`}
           />
@@ -69,7 +69,7 @@ function ProductImage({product, isHovered, hasSecondaryImage, mainImage, seconda
             data={secondaryImage}
             loading={loading}
             sizes="(min-width: 45em) 400px, 100vw"
-            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-300 ${
+            className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}
           />

@@ -1,5 +1,6 @@
 import {useLoaderData} from 'react-router';
 import {ProductItem} from '~/components/ProductItem';
+import {mockProducts} from '~/mock/products';
 
 /**
  * @type {MetaFunction}
@@ -11,13 +12,12 @@ export const meta = () => {
 /**
  * @param {LoaderFunctionArgs} args
  */
-export async function loader({context}) {
-  const {storefront} = context;
-  
-  const {products} = await storefront.query(PRODUCTS_QUERY);
+export async function loader() {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 100));
   
   return {
-    products: products.nodes,
+    products: mockProducts,
   };
 }
 
@@ -34,74 +34,6 @@ export default function Homepage() {
     </div>
   );
 }
-
-const PRODUCTS_QUERY = `#graphql
-  query Products {
-    products(first: 8) {
-      nodes {
-        id
-        title
-        handle
-        vendor
-        featuredImage {
-          id
-          url
-          altText
-          width
-          height
-        }
-        images(first: 2) {
-          nodes {
-            id
-            url
-            altText
-            width
-            height
-          }
-        }
-        options {
-          name
-          values
-        }
-        variants(first: 1) {
-          nodes {
-            id
-            availableForSale
-            selectedOptions {
-              name
-              value
-            }
-            image {
-              id
-              url
-              altText
-              width
-              height
-            }
-            price {
-              amount
-              currencyCode
-            }
-            compareAtPrice {
-              amount
-              currencyCode
-            }
-          }
-        }
-        priceRange {
-          minVariantPrice {
-            amount
-            currencyCode
-          }
-          maxVariantPrice {
-            amount
-            currencyCode
-          }
-        }
-      }
-    }
-  }
-`;
 
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
 /** @template T @typedef {import('react-router').MetaFunction<T>} MetaFunction */
