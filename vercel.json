@@ -6,10 +6,10 @@
   "framework": "hydrogen",
   "regions": ["iad1"],
   "env": {
-    "PUBLIC_STOREFRONT_API_TOKEN": "@public_storefront_api_token",
-    "PRIVATE_STOREFRONT_API_TOKEN": "@private_storefront_api_token",
+    "PUBLIC_STOREFRONT_API_TOKEN": "shpat_mock_public_token_123",
+    "PRIVATE_STOREFRONT_API_TOKEN": "shpat_mock_private_token_456",
     "PUBLIC_STOREFRONT_API_VERSION": "2024-01",
-    "PUBLIC_STORE_DOMAIN": "@public_store_domain"
+    "PUBLIC_STORE_DOMAIN": "hydrogen-preview.myshopify.com"
   },
   "builds": [
     {
