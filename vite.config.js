@@ -19,6 +19,7 @@ export default defineConfig({
     assetsInlineLimit: 0,
   },
   ssr: {
+    noExternal: ['@shopify/hydrogen', '@remix-run/*'],
     optimizeDeps: {
       /**
        * Include dependencies here if they throw CJS<>ESM errors.
