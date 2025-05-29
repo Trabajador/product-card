@@ -14,7 +14,7 @@ A modern, responsive product card component built with Shopify Hydrogen and Reac
 
 ## Live Demo
 
-[View Live Demo](https://your-demo-url.com)
+[View Live Demo](url_here)
 
 ## Installation
 
