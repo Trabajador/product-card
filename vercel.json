@@ -11,11 +11,6 @@
     "PUBLIC_STOREFRONT_API_VERSION": "2024-01",
     "PUBLIC_STORE_DOMAIN": "@public_store_domain"
   },
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "@vercel/node@18.17.0"
-    }
-  },
   "builds": [
     {
       "src": "dist/server/index.js",
