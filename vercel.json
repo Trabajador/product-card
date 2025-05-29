@@ -1,10 +1,30 @@
 {
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "hydrogen",
+  "regions": ["iad1"],
+  "env": {
+    "PUBLIC_STOREFRONT_API_TOKEN": "@public_storefront_api_token",
+    "PRIVATE_STOREFRONT_API_TOKEN": "@private_storefront_api_token",
+    "PUBLIC_STOREFRONT_API_VERSION": "2024-01",
+    "PUBLIC_STORE_DOMAIN": "@public_store_domain"
+  },
   "functions": {
-    "api/index.js": {
-      "runtime": "nodejs18.x"
+    "api/**/*.js": {
+      "runtime": "nodejs@20.10.0"
     }
   },
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/api/index.js" }
+  "builds": [
+    {
+      "src": "dist/server/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/server/index.js"
+    }
   ]
 }
