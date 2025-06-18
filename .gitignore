@@ -31,3 +31,5 @@ yarn-error.log*
 
 # Hydrogen specific
 .hydrogen/
+
+.shopify
